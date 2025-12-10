@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title> Cart Quantity </title>
+  </head>
+
+  <body>     
+  
+    <p> Cart Quantity </p>
+
+    <button id="ShowQuantity" onclick="
+      console.log(`Cart Quantity: ${cartQuantity}`)"> Show Quantity  
+    </button>
+    
+    <button id="AddToCart" onclick="
+      updateCartQuantity (1)
+    "> Add to Cart </button>
+
+    <button id="+2" onclick="
+      updateCartQuantity (2)
+    "> +2 </button>
+
+    <button id="+3" onclick="
+      updateCartQuantity (3)
+    "> +3 </button>
+
+    <button onclick="
+      updateCartQuantity (4)
+    "> +4 </button>
+
+    <button onclick="
+      updateCartQuantity (5)
+    "> +5 </button>
+
+    <button id="ResetCart" onclick="
+      cartQuantity = 0;
+      console.log('Cart was reset');
+      console.log(`Cart Quantity: ${cartQuantity}`);
+    "> Reset Cart </button>
+
+    <button id="MinusOne" onclick="
+      updateCartQuantity (-1)
+    "> -1 </button>
+
+    <button id="MinusOne" onclick="
+     updateCartQuantity (-2)
+    "> -2 </button>
+
+     <button id="MinusOne" onclick="
+        updateCartQuantity (-3)
+     "> -3 </button>
+
+
+    <script>  
+      let cartQuantity = 0;
+
+      function updateCartQuantity (change) {
+        if (cartQuantity + change > 10) {
+          alert('The cart is full!');
+          return;
+        }
+
+        if (cartQuantity + change < 0) {
+          alert('Not enough items in the cart!');
+          return;
+        }
+        
+        cartQuantity += change;
+        console.log(`Cart Quantity: ${cartQuantity}`);
+      }
+
+    </script>
+
+  </body>  
+</html>
+
+
+
+
+
+
+
