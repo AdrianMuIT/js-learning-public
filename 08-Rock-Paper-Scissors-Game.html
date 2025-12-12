@@ -46,7 +46,7 @@
     function playGame(playerMove) {
       const computerMove = pickComputerMove(); 
       
-      //Reset score
+      //Reset score button
       if (playerMove === 'reset') {
         score.wins = 0;
         score.losses = 0;
@@ -93,7 +93,7 @@
       
       
 
-      //Display the result in a popup
+      //Display the result in the console
       console.log(`You picket ${playerMove}. Computer picked ${computerMove}. ${result} `);
       console.log(`Wins: ${score.wins}. Losses: ${score.losses}. Ties: ${score.ties}`);
     }
