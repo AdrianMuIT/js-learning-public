@@ -12,18 +12,26 @@
 
 <button onclick="playGame('scissors');"> Scissors  </button>
 
-<button onclick="playGame('reset')"> Reset </button>
+<button onclick="
+  localStorage.removeItem('score');
+  score.wins = 0;
+  score.losses = 0;
+  score.ties = 0;
+"> Reset </button>
 
 <p> <a href=""> Click here </a> to see the final version</p>
 
  <script>
 
-  const score = {
-    wins: 0,
-    losses: 0,
-    ties: 0,
-  };
+  let score = JSON.parse(localStorage.getItem('score'));
 
+  if (!score) {
+    score = {
+      wins: 0,
+      losses: 0,
+      ties: 0
+    }
+  }
   let result = '';
 
   //Computer randomly selects a move
@@ -45,17 +53,9 @@
     //Compare the moves to get the result
     function playGame(playerMove) {
       const computerMove = pickComputerMove(); 
-      
-      //Reset score button
-      if (playerMove === 'reset') {
-        score.wins = 0;
-        score.losses = 0;
-        score.ties = 0;
-        return console.log(`Reset`);
-      }
 
       //Player move x Computer move 
-      if (playerMove === 'scissors') {ta
+      if (playerMove === 'scissors') {
          if (computerMove === 'rock') {
           result = 'You lose.';
         } else if (computerMove === 'paper') {
@@ -91,7 +91,8 @@
         score.ties += 1;
       }
       
-      
+      //Save score into local storage under score, also convert JS object into JSON
+      localStorage.setItem('score', JSON.stringify(score));
 
       //Display the result in the console
       console.log(`You picket ${playerMove}. Computer picked ${computerMove}. ${result} `);
