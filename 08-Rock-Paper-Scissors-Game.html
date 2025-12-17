@@ -23,8 +23,13 @@
 
  <script>
 
-  let score = JSON.parse(localStorage.getItem('score'));
+  let score = JSON.parse(localStorage.getItem('score')) || {
+      wins: 0,
+      losses: 0,
+      ties: 0
+    }; 
 
+  /* dodalismy || przy zmiennej score - zamiast tego na dole
   if (!score) {
     score = {
       wins: 0,
@@ -32,6 +37,7 @@
       ties: 0
     }
   }
+  */
   let result = '';
 
   //Computer randomly selects a move
@@ -101,6 +107,9 @@
     
     //Test Push git 
     console.log('Hello world');
+
+    //Test Contribution
+    console.log('test contribution')
     
   
   </script>
