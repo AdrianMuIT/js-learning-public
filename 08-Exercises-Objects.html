@@ -1,0 +1,107 @@
+<html lang="en">
+<head>
+  <title>Rock paper scissors</title>
+</head>
+<body>
+
+
+
+  <script>
+
+    /*
+    //EX 8a
+    const product = {
+      name: 'basketball',
+      price: 2095
+    };
+    console.log(product);
+
+    //EX 8b
+    product.price += 500;
+    console.log(product);
+
+    //EX 8c
+    product['delivery-time'] = '3 days'; //Adding with square brackets, beacuse of '-' sign (we dont use dot. with square brackets)
+    console.log(product);
+    */
+
+    //EX 8d 
+    /*
+    const product1 = {
+      name: 'shorts',
+      price: 1500
+    };
+    const product2 = {
+      name: 'T-shirt',
+      price: 750
+    };
+
+    function compareProducts (prod1, prod2) {
+      if (prod1.price > prod2.price) {
+        return prod2;
+      } else {
+        return prod1;
+      }
+    }
+
+    console.log(compareProducts(product1, product2));
+    */
+
+
+
+    //EX 8e - moje rozwiazanie
+    /*
+    const product1 = {
+      name: 'shorts',
+      price: 1500
+    };
+    const product2 = {
+      name: 'shorts',
+      price: 1500
+    };
+
+    function compareProducts (prod1, prod2) {
+      const price1 = prod1.price;
+      const name1 = prod1.name;
+
+      const price2 = prod2.price;
+      const name2 = prod2.name;
+
+      if (price1 !== price2 || name1 !== name2) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+   console.log(compareProducts(product1, product2));
+    */
+
+    //EX 8e - correct result - after my fix
+
+    const product1 = {
+      name: 'shorts',
+      price: 750
+    };
+    const product2 = {
+      name: 'shorts',
+      price: 1500
+    };
+
+     function compareProducts (prod1, prod2) {
+      if (
+        prod1.name === prod2.name &&
+        prod1.price === prod2.price
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    console.log(compareProducts(product1, product2));
+
+ 
+  </script>
+</body>
+</html> 

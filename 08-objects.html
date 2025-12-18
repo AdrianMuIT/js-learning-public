@@ -27,6 +27,7 @@
     console.log(product);
     */
 
+    /*
     const product2 = {
       name: 'shirt', 
       ['delivery-time']: '1 day',
@@ -56,8 +57,58 @@
 
     const jsonString = JSON.stringify(product2);
     console.log(JSON.parse(jsonString));
+    */
 
+    console.log('hello'.length);
+    console.log('hello'.toUpperCase());
+
+    const object1 = {
+      message: 'hello'
+    };
+
+    const object2 = object1; //do not copy whole object, only reference (in the memory)
     
+    object1.message = 'Good job!';
+    console.log(object2.message);
+
+    const object3 = {
+      message: 'Good job!'
+    };
+
+    console.log(object3 === object1);
+
+
+    const object4 = {
+      message: 'Good job!',
+      price: 799
+    };
+
+    // const message = object4.message;
+    const { message, price } = object4;
+
+    //we can set property in the object with the value === variable
+    //can be done like that 
+    /*
+    const object5 = {
+      message: message
+    };
+    console.log(object5);
+    */
+
+    //OR
+    //with simpler option 
+    const object5 = {
+      message,
+      // method: function function1() {
+      //   console.log('method');
+      // }
+      method() {
+        console.log('method');
+      }
+    };
+    
+    console.log(object5);
+    object5.method();
 
   </script>
 </body>
