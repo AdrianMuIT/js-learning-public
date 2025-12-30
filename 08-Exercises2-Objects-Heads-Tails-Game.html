@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+  <title> Calculator Advanced Local Storage </title>
+</head>
+<body>
+
+  <button onclick="playGame('heads')"> heads </button>
+  <button onclick="playGame('tails')"> tails </button>
+
+
+  <script>
+    
+    const score = JSON.parse(localStorage.getItem('scoreResult')) || {
+      wins: 0,
+      loses: 0
+    };
+
+    function playGame(userChoice) {
+      const randomNumber = Math.random(); //create random number
+      const sideGuess = randomNumber <= 0.5 ? 'heads' : 'tails'; //assign value to number
+      const result = sideGuess === userChoice ? 'You win!' : 'You lose!'; //check if value === user value
+
+      //adding value to object 
+      if (sideGuess === userChoice) {
+        score.wins ++;
+      } else {
+        score.loses ++;
+      }
+
+      console.log(result);
+      console.log(score);
+
+      //save update to object score under name scoreResult
+      localStorage.setItem('scoreResult', JSON.stringify(score));
+    }
+
+
+  </script>
+</body>
+</html> 
