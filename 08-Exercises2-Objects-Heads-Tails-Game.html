@@ -18,7 +18,8 @@
     function playGame(userChoice) {
       const randomNumber = Math.random(); //create random number
       const sideGuess = randomNumber <= 0.5 ? 'heads' : 'tails'; //assign value to number
-      const result = sideGuess === userChoice ? 'You win!' : 'You lose!'; //check if value === user value
+  
+      console.log(sideGuess === userChoice ? 'You win!' : 'You lose!');
 
       //adding value to object 
       if (sideGuess === userChoice) {
@@ -26,8 +27,7 @@
       } else {
         score.loses ++;
       }
-
-      console.log(result);
+      
       console.log(score);
 
       //save update to object score under name scoreResult
