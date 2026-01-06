@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+  <title> DOM </title>
+</head>
+<body>
+  <p> YouTube Subscribe Button</p>
+  <button onclick="subscribe()" class="js-subscribe-button">Subscribe</button>
+
+  
+
+  <p> Rock Paper Scrisors </p>
+  <a href=""> Click here </a>
+
+  <p> Amazon Shipping Calculator </p>
+  <p> Orders under 40$ = +$10 shipping </p>
+  <p> Orders over 40$ = FREE shipping </p>
+
+
+
+  <script>
+    function subscribe() {
+      const buttonElement = document.querySelector('.js-subscribe-button');
+      console.log(buttonElement.innerText);
+
+      if (buttonElement.innerText === 'Subscribe') {
+        buttonElement.innerText = 'Subscribed';
+      } else {
+        buttonElement.innerText = 'Subscribe';
+      }
+    }
+    
+  </script>
+</body>
+</html> 
