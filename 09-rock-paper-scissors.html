@@ -9,6 +9,8 @@
   <button onclick="playGame('rock')"> Rock </button>
   <button onclick="playGame('paper')"> Paper  </button>
   <button onclick="playGame('scissors');"> Scissors  </button>
+  <p class="js-result"> </p>
+  <p class="js-moves"> </p>
   <p class="js-score"></p>
 
   <button onclick="
@@ -101,18 +103,22 @@
       
       //Save score into local storage under score, also convert JS object into JSON
       localStorage.setItem('score', JSON.stringify(score));
-      
+
       //update score after onclick
       updateScoreElement();
+      
+      document.querySelector('.js-result')
+        .innerHTML = `${result}`;
+
+      document.querySelector('.js-moves')
+        .innerHTML = `You ${playerMove} - ${computerMove} Computer`;
     }
 
     //function for updating score in HTML on page 
     function updateScoreElement() {
       document.querySelector('.js-score')
         .innerHTML = `Wins: ${score.wins}. Losses: ${score.losses}. Ties: ${score.ties}`;
-    }    
-  
-  
+    }     
   </script>
 </body>
 </html> 
