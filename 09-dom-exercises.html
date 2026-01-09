@@ -10,24 +10,95 @@
   <button class="heads" onclick="choiceOfSide('heads')">heads</button>
   <button class="tails" onclick="choiceOfSide('tails')">tails</button>
   <p class="js-player-choice"></p>
-  
+
+  <input class="js-input-name" onkeyup="pressInputToResult()"> <button class="js-submit" onclick="submitName()">Submit</button>
+  <p class="show-name"></p>
+
+  <input class="js-typing" placeholder="Print in Real Time" onkeyup="typeInRealTime(event);">
+  <p class="js-output-type"></p>
+
+  <p> Amazon Shipping Calculator </p>
+  <p> Orders under 40$ = +$10 shipping </p>
+  <p> Orders over 40$ = FREE shipping </p>
+
+  <input placeholder="Cost of order" class="js-cost-input" onkeydown="handleCostKeyDown(event)">
+  <button onclick="calculateTotal()"> Calculate </button>
+  <p class="js-total-cost"> </p>
   
   <script>
     //9a, b
-    /*
     console.log(document.querySelector('.js-button-9a'));
     
     document.querySelector('.js-button-9b')
       .innerHTML = '9b done';
-    */
-
-
+    
     //9c
-    /*
     function choiceOfSide(coinSide) {
       document.querySelector('.js-player-choice'). innerHTML = `You chose ${coinSide}`;
     }
+
+    //My first solution 9d, e
+    /*
+    function submitName() {
+      const name = document.querySelector('.js-input-name');
+
+      document.querySelector('.show-name')
+        .innerHTML = `Your Name is: ${name.value}`;
+    }
+    
+    function pressInputToResult(event) {
+      if (event.key === 'Enter') {
+        const name = document.querySelector('.js-input-name');
+
+        document.querySelector('.show-name')
+          .innerHTML = `Your Name is: ${name.value}`;
+      }
+    }
     */
+    
+    //My second solution for 9d, e
+    function showname() {
+      const name = document.querySelector('.js-input-name');
+      document.querySelector('.show-name')
+        .innerHTML = `Your Name is: ${name.value}`;
+    }
+
+    function submitName() {
+      showname();
+    }
+
+    function pressInputToResult(event) {
+      if (event.key === 'Enter') {
+        showname();
+      }
+    }
+
+    //9g
+    function handleCostKeyDown(event) {
+      if (event.key === 'Enter')
+      calculateTotal();
+    }
+
+    function calculateTotal() {
+      const inputElement = document.querySelector('.js-cost-input');
+      let cost = Number(inputElement.value) * 100;
+
+      if (cost < 4000) {
+        cost = cost + 1000; 
+      } 
+      
+      document.querySelector('.js-total-cost')
+        .innerHTML = `Total cost $${cost / 100}`
+    }
+
+
+    //9h
+    function typeInRealTime(event) {
+      let inputElement = document.querySelector('.js-typing');
+
+      document.querySelector('.js-output-type').innerHTML =  inputElement.value;
+    }
+      
     
 
   </script>
