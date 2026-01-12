@@ -24,6 +24,20 @@
       background-color: rgb(240, 240, 240);
       color: black;
     }
+
+    .js-cost-input {
+      padding: 10px;
+      font-size: 15px;
+    }
+
+    .calculate-button {
+      padding: 12px 15px;
+      background-color: green;
+      color: white;
+      border: none;
+      font-size: 15px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -31,19 +45,16 @@
   <p> YouTube Subscribe Button</p>
   <button onclick="subscribe()" class="js-subscribe-button">Subscribe</button>
 
-  
-
-  <p> Rock Paper Scrisors </p>
-  <a href="09-rock-paper-scissors.html"> Click here </a>
-
   <p> Amazon Shipping Calculator </p>
   <p> Orders under 40$ = +$10 shipping </p>
   <p> Orders over 40$ = FREE shipping </p>
 
   <input placeholder="Cost of order" class="js-cost-input" onkeydown="handleCostKeyDown(event)">
-  <button onclick="calculateTotal()"> Calculate </button>
+  <button onclick="calculateTotal()" class="calculate-button"> Calculate </button>
   <p class="js-total-cost"> </p>
 
+  <p> Rock Paper Scrisors </p>
+  <a href="10-rock-paper-scissors.html"> Click here </a>
 
   <script>
     function handleCostKeyDown(event) {
