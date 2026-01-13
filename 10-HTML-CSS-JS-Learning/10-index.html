@@ -38,6 +38,10 @@
       font-size: 15px;
       cursor: pointer;
     }
+
+    .js-error-mes {
+      color: red;
+    }
   </style>
 </head>
 <body>
@@ -52,6 +56,7 @@
   <input placeholder="Cost of order" class="js-cost-input" onkeydown="handleCostKeyDown(event)">
   <button onclick="calculateTotal()" class="calculate-button"> Calculate </button>
   <p class="js-total-cost"> </p>
+  <p class="js-error-mes"> </p>
 
   <p> Rock Paper Scrisors </p>
   <a href="10-rock-paper-scissors.html"> Click here </a>
@@ -64,14 +69,27 @@
 
     function calculateTotal() {
       const inputElement = document.querySelector('.js-cost-input');
+      const totalCostMessage = document.querySelector('.js-total-cost');
+      const errorMessage = document.querySelector('.js-error-mes');
       let cost = Number(inputElement.value);
 
+      totalCostMessage.innerHTML = '';
+      errorMessage.innerHTML = '';
+
+      if(isNaN(cost)) {
+        errorMessage.textContent = "Please enter a valid number";
+        return;
+      }
+
+      if (cost < 0) {
+        errorMessage.innerHTML = 'Error Amount!';
+          return;
+      }
+
       if (cost < 40) {
-        cost = cost + 10; 
-      } 
-      
-      document.querySelector('.js-total-cost')
-        .innerHTML = `Total cost $${cost}`
+        cost += 10; 
+      }
+      totalCostMessage.innerHTML = `Total cost $${cost}`
     }
 
 
