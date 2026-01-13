@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+  <title> CSS HTML JS DOM Exercises</title>
+  <style>
+    .amazon-button {
+      background-color: rgb(255, 216, 20);
+      border: none;
+      width: 150px;
+      height: 30px;
+      border-radius: 75px;
+    }
+
+    .request-now-button {
+      border: none;
+      background-color: black;
+      width: 120px;
+      height: 40px;
+      font-weight: bold;
+      color: white;
+      border-radius: 6px;
+    }
+
+    .schedule-for-later-button {
+      border: none;
+      background-color: rgb(230, 230, 230);
+      width: 150px;
+      height: 40px;
+      font-weight: bold;
+      color: black;
+      border-radius: 6px;
+    }
+  .toggled {
+    color: black;
+    background-color: rgb(230, 230, 230);
+    padding: 10px 15px;
+    margin-right: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+  }
+
+  .is-toggled {
+    background-color: black;
+    color: white;
+    border: none;
+  }
+  </style>
+</head>
+<body>
+  <p>
+    <button class="amazon-button">Add to Cart</button>
+    <button class="request-now-button">Request now</button>
+    <button class="schedule-for-later-button">Schedule for later</button>
+  </p>
+
+  <p>
+    <button class="js-button"> Test </button>
+  </p>
+  
+  <p>
+    <button class="toggled js-button-1" onclick="onOffButton('.js-button-1')">Gaming</button>
+    <button class="toggled js-button-2" onclick="onOffButton('.js-button-2')">Music</button>
+    <button class="toggled js-button-3" onclick="onOffButton('.js-button-3')">Tech</button>
+  </p>
+  
+  
+  <script>
+
+  function onOffButton(selector) {
+    const button = document.querySelector(selector);
+    
+    if (!button.classList.contains('is-toggled')) {
+      turnOffPreviousToggleButton();
+      button.classList.add('is-toggled');
+    } 
+  }
+
+  function turnOffPreviousToggleButton() {
+    const previousToggle = document.querySelector('.is-toggled');
+    if (previousToggle) {
+      previousToggle.classList.remove('is-toggled');
+    }
+  }
+  
+     
+  </script>
+</body>
+</html> 
