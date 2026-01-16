@@ -1,5 +1,6 @@
 const toDoList1 = [];
 let toDoList2 = [];
+let toDoList3 = [];
 
 function addTodo1(selector) {
   const inputElement = document.querySelector(`${selector}`);
@@ -27,7 +28,4 @@ function addTodo2(selector) {
 
   inputElement.value = '';
 }
-
-
-
 
