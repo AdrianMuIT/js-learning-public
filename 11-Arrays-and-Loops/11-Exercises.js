@@ -129,8 +129,8 @@ console.log(countPositive([-2, 3, -5, 7, 10]));
 //EX 11l
 function minMax(nums) {
   const result = {
-    min: nums[0],
-    max: nums[0]
+    min: null,
+    max: null
   }
 
   for (let i = 0; i < nums.length; i++) {
@@ -148,3 +148,26 @@ function minMax(nums) {
 
 console.log(minMax([1, -3, 5]));
 console.log(minMax([]));
+console.log(minMax([3]));
+
+
+//EX 11n
+function countWords(words) {
+  const wordsSummaryObject = {};
+
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i];
+
+    if (!wordsSummaryObject[word]) {
+      wordsSummaryObject[word] = 1;
+    } else {
+      wordsSummaryObject[word]++;
+    }
+  }
+
+  return wordsSummaryObject;
+}
+    
+console.log(countWords(['apple', 'grape', 'apple', 'apple']));
+
+

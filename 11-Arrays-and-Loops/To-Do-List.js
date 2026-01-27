@@ -29,3 +29,12 @@ function addTodo2(selector) {
   inputElement.value = '';
 }
 
+
+
+function addTodo3(selector) {
+  let toDoListHTML = '';
+
+  for (let i = 0; i < toDoList3) {
+
+  }
+}

@@ -8,6 +8,7 @@
 
 
   <script>
+    /*
     const myArray = [
       10, 
       20, 
@@ -83,6 +84,84 @@
     }
 
     console.log(doubleNumbers);
+    */
+
+    //Arrays are also references to the memore (like with objects)
+    const array1 = [1, 2, 3];
+    const array2 = array1;
+    array2.push(4);
+    console.log(array1); //even tho we added 4 to array2, array1 will print 1, 2, 3, 4 anyway 
+    console.log(array2); 
+
+    //in order to copy values 
+     const array3 = array1.slice(); //it will create new reference in the memory with the same values
+  
+    //Destructuring
+    const [firstValue, secondValue, thirdValue] = [1, 2, 3];
+
+    //it the same like:
+    //const firstValue = array1[0];
+
+
+    //LOOP - more condidations (break) - let us stop loop early
+    for (let i = 0; i <= 10; i++) {
+      console.log(i);
+      if (i === 8) {
+        break;
+      }
+    }
+
+    //LOOP - more condidations (continue) - skip 1 iteretion
+
+    for (let i = 0; i <= 10; i++) {
+      if (i === 3) {
+        continue; //it will skip rest of the code if true (only for 1 iteretion)
+      }
+
+      console.log(i);
+      if (i === 8) {
+        break;
+      }
+    }
+
+    for (let i = 0; i <= 10; i++) {
+      if (i % 3 === 0) {
+        continue; //it will skip rest of the code if true (only for 1 iteretion)
+      }
+      console.log(i);
+    }
+
+    let i = 1;
+    
+    while (i <= 10) {
+      if (i % 3 === 0) {
+        i++
+        continue;
+      }
+      console.log(i);
+      i++;
+    }
+
+
+    function arrayPlusOne(array) {
+      let arrayPlus = [];
+
+      for (let i = 0; i < array.length; i++) {
+        if (array === 0) {
+          break;
+        }
+        arrayPlus.push(array[i] * 2);
+      }
+      return arrayPlus;
+    }
+
+    console.log(arrayPlusOne([1, 1, 3]));
+    console.log(arrayPlusOne([]));
+
+    
+
+    
+
   </script>
 </body>
 </html> 
