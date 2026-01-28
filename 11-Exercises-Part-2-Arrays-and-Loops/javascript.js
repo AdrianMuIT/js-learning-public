@@ -183,3 +183,7 @@ function contains(array, word) {
 }
 console.log(uniqe(['green', 'red', 'blue', 'red']));
 console.log(uniqe(['red', 'green', 'green', 'red']));
+
+
+//EX 11x 
+ 

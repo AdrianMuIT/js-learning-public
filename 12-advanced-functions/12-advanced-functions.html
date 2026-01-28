@@ -1,0 +1,75 @@
+<html lang="en">
+<head>
+  <title> Arrays and Loops </title>
+</head>
+<body>
+
+
+  <script>
+    function greeting() {
+      console.log('hello');
+    }
+
+    greeting();
+
+
+    const num = 2;
+    const function1 = function() {
+      console.log('hello2');
+    };
+
+    console.log(function1); //will return code that is in the variable
+    console.log(typeof function1); //will return 'function'
+    function1();    //this is how we call it
+
+
+    //well, functions are values - values can be saved in variables and objects
+    //which means we can save variable (that value = function) into an object
+    const object1 = {
+      num: 2,
+      fun: function() {
+        console.log('hello3');
+      }
+    };
+
+    object1.fun();
+
+
+    //What else can we do with value?
+    //we can pass value into a funtion
+
+    //Passing a value into the functions
+    function display(parameter) {
+      console.log(parameter);
+    }
+
+    display('lol');
+
+    //Bacause functions are values
+    //we can pass function into the function
+
+    //Passing a function into another functiuon
+    function run(param) {
+      param();
+    }
+
+    run(function () {
+      console.log('hello4');  //we call it; call-back function
+    });
+
+
+    //Practical Examples
+    //setTimeout()
+
+    // setTimeout(); //takes two parameters (function, time)
+    setTimeout(function() {
+      console.log('timeout');
+    }, 3000);
+
+
+    //Asynchronous Code
+    console.log('next line');
+
+  </script>
+</body>
+</html> 

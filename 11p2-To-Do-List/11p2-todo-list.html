@@ -5,10 +5,21 @@
   
 </head>
 <body>
-  <input type="text" class="js-todo-list" placeholder="Todo name">
-  <input type="date" class="js-date">
-  <button class="addButton" onclick="addToDo();">Add</BUtton>
-  <p class="list"> </p>
+
+  <p>Todo List</p>
+
+  <div class="todo-input-grid">
+    <input type="text" 
+      class="js-todo-list name-input" placeholder="Todo name">
+    <input type="date" 
+      class="js-date due-date-input">
+    <button  onclick="
+      addToDo();" 
+      class="add-todo-button">Add</button>
+  </div>
+
+    <div class="list todo-grid"> </div>
+  
 
 <script src="todo-list.js"> </script> 
 </body>
