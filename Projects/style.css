@@ -1,0 +1,29 @@
+.navigation {
+  margin: auto;
+  padding: 10px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-number {
+  height: 100%;
+}
+
+.play-button,
+.reset-button,
+.check-button {
+  width: 100px;
+  margin-left: 10px;
+  height: 100%;
+}
+
+.number {
+  height: 30px;
+  width: 30px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+
