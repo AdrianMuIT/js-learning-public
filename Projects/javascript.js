@@ -1,16 +1,31 @@
 let selectedRandomNumbers = [];
 let userSelectedNumbers = [];
+let leftToGuess = 0;
 
 function play() { 
-  selectedRandomNumbers = [];
+  reset();
   const inputElement = document.querySelector('.js-input-number');
+  const outputElement = document.querySelector('.js-result');
   const number = Number(inputElement.value);
 
-  randomNumber(number);
-  highlightSequence(selectedRandomNumbers);
+  randomNumber(number);                         //Generate random number
+  highlightSequence(selectedRandomNumbers);     //Buttons Highlits Sequence
+  
+  outputElement.innerHTML = number;             //Shows # left to guess
 
   console.log(selectedRandomNumbers);
 };
+
+//set random numbers based on amount user decided
+function randomNumber(amount) {
+  selectedRandomNumbers = [];
+
+  for (let i = 0; i < amount; i++) {
+    const randomInput = Math.floor(Math.random() * 9) + 1;
+    selectedRandomNumbers.push(randomInput);
+  };
+};
+
 
 //Function to highlight numbers for user to remeber
 function highlightSequence(array) {
@@ -34,19 +49,26 @@ function highlightButton(number) {
 };
 
 
-//set random numbers based on amount user decided
-function randomNumber(amount) {
-  selectedRandomNumbers = [];
+//Count down after user click Play
+function countDown() {
+  let i = 5;
+  const count = document.querySelector('.js-count-down');
 
-  for (let i = 0; i < amount; i++) {
-    const randomInput = Math.floor(Math.random() * 18) + 1;
-    selectedRandomNumbers.push(randomInput);
-  };
+  const intervalID = setInterval(function() {
+    count.innerHTML = i;
+    
+    if (i === 0) {
+      clearInterval(intervalID);
+      return count.innerHTML = 'Start';
+    }
+
+    i--;
+  }, 500); 
 };
 
 
 //save clicked number in the array, with order
-let howManyNumbers = 0;
+
 
 function clickNumber(x) {
   userSelectedNumbers.push(x);
@@ -74,25 +96,6 @@ function checkResult() {
   return document.querySelector('.js-win-or-lose').innerHTML = `You Lost!`;
 };
 
-
-//Count down after user click Play
-function countDown() {
-  let i = 5;
-  const count = document.querySelector('.js-count-down');
-
-  const intervalID = setInterval(function() {
-    count.innerHTML = i;
-    
-    if (i === 0) {
-      clearInterval(intervalID);
-      return count.innerHTML = 'Start';
-    }
-
-    i--;
-  }, 500); 
-};
-
-
 //Empty arrays
 function reset() {
   selectedRandomNumbers = [];
@@ -101,3 +104,4 @@ function reset() {
   document.querySelector('.js-count-down').innerHTML = '';
   document.querySelector('.js-win-or-lose').innerHTML = '';
 };
+

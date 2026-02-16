@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+  <title> Arrays and Loops </title>
+</head>
+<body>
+
+    <button class="js-button-1" onclick="setTimeout(changeButtonText, 1000)">Start</button>
+
+  <script>
+    //EX 12a
+
+    const add = function() {
+      console.log(2 + 3);
+    };
+
+    add();
+    add();
+
+    //EX 12b
+
+    function runTwice(fun) {
+      fun();
+      fun()
+    };
+
+    runTwice(function () {
+      console.log('12b')
+    });
+    
+    runTwice(add);
+
+    //EX 12c
+    function changeButtonText () {
+      document.querySelector('.js-button-1').innerHTML = 'Finished';
+    }
+
+
+
+
+  </script>
+</body>
+</html> 

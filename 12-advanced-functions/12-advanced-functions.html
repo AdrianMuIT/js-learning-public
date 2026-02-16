@@ -61,6 +61,7 @@
     //Practical Examples
     //setTimeout()
 
+    /*
     // setTimeout(); //takes two parameters (function, time)
     setTimeout(function() {
       console.log('timeout');
@@ -75,6 +76,33 @@
     setInterval(function() {
       console.log('interval');
     }, 3000);
+    */
+
+    const arr1 = [
+      'make dinner',
+      'wash dishes',
+      'watch youtube'
+    ];
+    
+    arr1.forEach(function (value, index) {
+      console.log(value, index);
+    });
+
+
+    const arr2 = [
+      'make dinner',
+      'wash dishes',
+      'watch youtube'
+    ];
+    
+    arr2.forEach(function (value, index) {
+      if (value === 'wash dishes') {
+        return;           //it does the same as continue, but in forEach
+      }                   //we use return, if we need to use break - its better to use for loop
+
+      console.log(index);
+      console.log(value);
+    });
   </script>
 </body>
 </html> 

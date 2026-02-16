@@ -6,7 +6,7 @@
 <body>
   <p> Memory Game </p>
 
-  <nav class="navigation"> 
+  <div class="navigation"> 
     <input class="js-input-number input-number" placeholder="Input #numbers to remeber">
     <button 
       class="js-play-button play-button" 
@@ -23,21 +23,34 @@
       onclick="checkResult();
     ">Check</button>
 
-    <p class="game-info">Numbers left to find:</p>
-    <p class="js-result result">25</p>
-    <p class="js-win-or-lose win-or-lose"></p>
     <p class="js-count-down count-down"></p>
-  </nav>
+  </div>  
 
   <div>
-    <button class="js-number-1 number" onclick="clickNumber(1);">1</button>
-    <button class="js-number-2 number" onclick="clickNumber(2);">2</button>
-    <button class="js-number-3 number" onclick="clickNumber(3);">3</button>
-    <button class="js-number-4 number" onclick="clickNumber(4);">4</button>
-    <button class="js-number-5 number" onclick="clickNumber(5);">5</button>
-    <button class="js-number-6 number" onclick="clickNumber(6);">6</button>
+    <p class="game-info">Numbers left to find:</p>
+    <p class="js-result result"></p>
+    <p class="js-win-or-lose win-or-lose"></p>
   </div>
 
+  <div>
+    <button class="js-number-1 number" onclick="clickNumber(1);"></button>
+    <button class="js-number-2 number" onclick="clickNumber(2);"></button>
+    <button class="js-number-3 number" onclick="clickNumber(3);"></button>
+  </div>
+
+    <div>
+    <button class="js-number-4 number" onclick="clickNumber(4);"></button>
+    <button class="js-number-5 number" onclick="clickNumber(5);"></button>
+    <button class="js-number-6 number" onclick="clickNumber(6);"></button>
+  </div>
+
+  <div>
+    <button class="js-number-7 number" onclick="clickNumber(7);"></button>
+    <button class="js-number-8 number" onclick="clickNumber(8);"></button>
+    <button class="js-number-9 number" onclick="clickNumber(9);"></button>
+  </div>
+
+  <!--
   <div>
     <button class="js-number-7 number" onclick="clickNumber(7);">7</button>
     <button class="js-number-8 number" onclick="clickNumber(8);">8</button>
@@ -55,6 +68,7 @@
     <button class="js-number-17 number" onclick="clickNumber(17);">17</button>
     <button class="js-number-18 number" onclick="clickNumber(18);">18</button>
   </div>
+  -->
 
   <p class="js-computer-array computer-array"> </p> <!-- Tutaj bedzie wypisywana zawartosc array [ukryta], odkryje sie jesli user wybierze poprawne dane -->
   <p class="js-user-array user-array"> </p> <!-- Tutaj będą się pokazywały wybory usera-->

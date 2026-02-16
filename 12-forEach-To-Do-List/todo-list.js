@@ -3,9 +3,26 @@ let toDoList = JSON.parse(localStorage.getItem('toDoListSave')) || [];
 renderToDoList();
 
 function renderToDoList() {
-
   let htmlList = '';
-  
+
+  toDoList.forEach(function (toDoObject, index) {
+    const {name, dueDate} = toDoObject;
+    const html = `
+      <div> ${name} </div>
+      <div> ${dueDate} </div>
+      <button onclick="
+        toDoList.splice(${index}, 1);
+        saveToStorage();
+        renderToDoList();
+      " class="delete-todo-button">Delete</button>
+    `; 
+    htmlList += html;
+  });
+
+  document.querySelector('.list').innerHTML = htmlList;
+};
+
+  /*
   for (let i = 0; i < toDoList.length; i++) {
     const toDoObject = toDoList[i];
     const {name, dueDate} = toDoObject;
@@ -20,8 +37,7 @@ function renderToDoList() {
     `;
     htmlList += html;
   }
-  document.querySelector('.list').innerHTML = htmlList;
-}
+  */
 
 
 function addToDo() {
