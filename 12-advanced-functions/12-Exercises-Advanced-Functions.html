@@ -1,11 +1,15 @@
 <html lang="en">
 <head>
-  <title> Arrays and Loops </title>
+  <title>App</title>
 </head>
 <body>
 
-    <button class="js-button-1" onclick="setTimeout(changeButtonText, 1000)">Start</button>
+    <button class="js-button-1" onclick="loading();">Start</button>
+    <button class="js=button-add-to-cart" onclick="addToCart();">Add to Cart</button>
+    <p class="js-cart-info"></p>
 
+    <button class="js-button-add" onclick="addMessages();">Add</button>
+    <button class="js-button-remove" onclick="removeMessagesInfo();">Remove</button>
   <script>
     //EX 12a
 
@@ -30,9 +34,81 @@
     runTwice(add);
 
     //EX 12c
-    function changeButtonText () {
-      document.querySelector('.js-button-1').innerHTML = 'Finished';
+
+    function loading() {
+      document.querySelector('.js-button-1').innerHTML = 'Loading..';
+      
+      setTimeout(function() {
+        changeText('.js-button-1', 'Finished')
+      }, 1000);
     }
+
+    function changeText(selector, change) {
+      document.querySelector(`${selector}`).innerHTML = change;
+    }
+
+
+    //EX 12e, f
+    let timeoutID;
+
+    function addToCart() {
+      let infoText = document.querySelector('.js-cart-info');
+      infoText.textContent = 'Added';
+
+      clearTimeout(timeoutID);
+
+      timeoutID = setTimeout(function() {
+        changeText('.js-cart-info', '')
+      }, 1000) 
+    };
+
+     //EX 12g, h, i
+    let numberMessages = 2;
+    let intervalIdMessages;
+    let isDisplayNotification;
+
+    changeTitle();
+
+    function changeTitle() {
+      if(isDisplayNotification) {
+        return;
+      }
+
+      isDisplayNotification = true;
+
+      intervalIdMessages = setInterval(function (){
+        if(document.title === 'App') {
+          document.title = `(${numberMessages}) New Messeges`;
+        } else {
+          document.title = 'App';
+        }
+      }, 1000);
+      
+    }
+
+    function addMessages() {
+      numberMessages++;
+      changeTitle();
+    };
+
+    function removeMessagesInfo() {
+        numberMessages--;
+        changeTitle();
+
+        if(numberMessages === 0) {
+          stopNotification();
+        };
+    };
+
+    function stopNotification() {
+      isDisplayNotification = false;
+
+      clearInterval(intervalIdMessages);
+      document.title = 'App';
+    };
+    
+
+
 
 
 

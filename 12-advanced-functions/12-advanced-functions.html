@@ -103,6 +103,35 @@
       console.log(index);
       console.log(value);
     });
+
+
+    //ARROW FUNCTIONS 
+    const regularFunction = function(param, param2) {
+      console.log('hello');
+      return 5;
+    };
+
+    const arrowFunction = (param, param2) => {
+      console.log('hello');
+      return 5;
+    };
+
+    arrowFunction();
+
+
+    //example of differences vs regular function
+    //In one parameter no need to use ()
+    const oneParam = param => {
+      console.log(param + 1);
+    };
+
+    oneParam(2);
+
+    //example two - one line arrow function
+    //we can remove square brackets and return
+    const oneLine = () => 2 + 3;
+
+    console.log(oneLine());
   </script>
 </body>
 </html> 
