@@ -176,6 +176,50 @@
       console.log('click2');
     });
 
+    ////////////////////////////////////////////////////
+    //.fiter()  --array method 
+
+    const arr5 = [1, -3, 5].filter((value, index) => {
+      return true;  
+    }); //works the same as for each, but this time it will return a value
+
+    console.log([1, -3, 5].filter((value, index) => {
+      return true; // it will log [1, -3, 5] - because we set true for each interetion 
+    })); 
+
+    console.log([1, -3, 5].filter((value, index) => {
+      if (value >= 0) {
+        return true;
+      } else {
+        return false;
+      }
+    })); // it will return an array [1, 5] - because true is only for value => 0
+
+    console.log([1, -3, 5].filter((value, index) => {
+      return value >= 0;     
+    })); // it will return an array [1, 5] - because true is only for value => 0
+
+
+
+    //.map() --array method
+
+    console.log([1, 1, 3].map((value, index) => {
+      return 10;   //it will return [10, 10, 10] - each value becomes 10
+    }));
+
+     console.log([1, 1, 3].map((value, index) => {
+      return value + 10;   //it will add 10 to each value
+    }));
+
+    ///////////////////////////////////
+
+    //shortcuts for array functions - both codes do the same thing, but 2nd one is with shortcuts
+     console.log([1, 1, 3].map((value, index) => {
+      return value * 2;   
+    }));
+
+    console.log([1, 1, 3].map(value => value * 2)); 
+  
   </script>
 </body>
 </html> 
