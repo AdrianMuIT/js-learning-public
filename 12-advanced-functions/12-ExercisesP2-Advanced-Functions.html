@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+  <title>Exercises Part 2 - Advanced Functions</title>
+</head>
+<body>
+
+  <script>
+  
+  //EX 12j, 12k
+  const multiply = (number1, number2) => number1 * number2;
+
+  console.log(multiply(2, 3));
+  console.log(multiply(7, 10));
+
+  //EX 12l
+  function countPositive(nums) {
+    let positiveNumbers = 0;
+
+    nums.forEach((value) => {
+      if (value > 0) {
+        positiveNumbers++;
+      }
+    });
+
+    return positiveNumbers;
+  };
+
+  console.log(countPositive([1, -3, 5]));
+  console.log(countPositive([-2, 3, -5, 7, 10]));
+
+  //EX 12m
+  const addNum = (array, num) =>
+    array.map(value => value + num);
+
+  console.log(addNum([1, 2, 3], 2));
+  console.log(addNum([-2, -1, 0, 99], 2));
+
+  //EX 12n
+  const removeEgg = (foods) => {
+    return foods.filter((value, index) => {
+      if (value !== 'egg') {
+        return true;
+      } 
+    });
+  };
+
+  console.log(removeEgg(['egg', 'appple', 'egg', 'egg', 'ham']));
+
+
+
+  </script>
+</body>
+</html> 
