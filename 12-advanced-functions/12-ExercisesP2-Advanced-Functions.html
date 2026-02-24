@@ -38,14 +38,37 @@
   //EX 12n
   const removeEgg = (foods) => {
     return foods.filter((value, index) => {
-      if (value !== 'egg') {
+      if (value ==! 'egg') {
         return true;
       } 
     });
   };
 
-  console.log(removeEgg(['egg', 'appple', 'egg', 'egg', 'ham']));
+  const removeEggShort = (foods) => {
+    return foods.filter((value) => value !== 'egg');
+  };
 
+
+  console.log(removeEgg(['egg', 'appple', 'egg', 'egg', 'ham']));
+  console.log(removeEggShort(['egg', 'appple', 'egg', 'egg', 'ham']));
+
+
+  //EX 12o
+
+  const removeLastTwoEggs = (array) => {
+    let numberEggs = 0;
+
+    return array.filter(value => {
+      if (value === 'egg' && numberEggs < 2) {
+        numberEggs++;
+        return false;
+      } 
+
+        return true;    
+    });
+  };
+
+  console.log(removeLastTwoEggs(['egg', 'appple', 'egg', 'egg', 'ham']));
 
 
   </script>

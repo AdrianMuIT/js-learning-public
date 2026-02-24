@@ -4,7 +4,7 @@
 </head>
 <body>
 
-    <button class="js-button-1" onclick="loading();">Start</button>
+    <button class="js-button-1">Start</button>
     <button class="js=button-add-to-cart" onclick="addToCart();">Add to Cart</button>
     <p class="js-cart-info"></p>
 
@@ -35,13 +35,18 @@
 
     //EX 12c
 
-    function loading() {
-      document.querySelector('.js-button-1').innerHTML = 'Loading..';
+    document.querySelector('.js-button-1')
+      .addEventListener('click', () => {
+      const button = document.querySelector('.js-button-1');  
       
-      setTimeout(function() {
+      button.innerHTML = 'Loading..';
+      
+      setTimeout(() => {
         changeText('.js-button-1', 'Finished')
       }, 1000);
-    }
+    });
+
+   
 
     function changeText(selector, change) {
       document.querySelector(`${selector}`).innerHTML = change;
@@ -57,7 +62,7 @@
 
       clearTimeout(timeoutID);
 
-      timeoutID = setTimeout(function() {
+      timeoutID = setTimeout(() => {
         changeText('.js-cart-info', '')
       }, 1000) 
     };
