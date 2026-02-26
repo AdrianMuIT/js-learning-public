@@ -115,7 +115,7 @@ function updateScoreElement() {
     .innerHTML = `Wins: ${score.wins}. Losses: ${score.losses}. Ties: ${score.ties}`;
 }
 
-//Reset score; set <p> to empty
+//
 function resetScore() {
   const html = `
   <p>Are you sure you want to reset score?</p>
@@ -135,6 +135,7 @@ function resetScore() {
   noButton.addEventListener('click', () => confirmationOutput.innerHTML = '');
 };
 
+//function to set defult values if user click Yes - Reset
 function yesReset() {
   let zeroScore = {
     wins: 0,
@@ -151,7 +152,7 @@ function yesReset() {
   resultOutput.innerHTML = '';
   movesOutput.innerHTML = '';
   confirmationOutput.innerHTML = '';
-}; 
+};
 
 
 //setting autoplay option

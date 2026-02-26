@@ -2,11 +2,24 @@
       background-color: rgb(25, 25, 25);
       color: white;
       font-family: Arial;
+      height: 100vh;
+      margin: 0;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+
+    .container {
+     
     }
 
     .title {
       font-size: 30;
       font-weight: bold;
+      display: flex;
+      justify-content: center;
     }
 
     .move-icon {
@@ -24,9 +37,19 @@
       cursor: pointer;
     }
 
+    .result,
+    .moves,
+    .score,
+    .play-buttons {
+      display: flex;
+      justify-content: center;
+    }
+
     .result {
       font-weight: bold;
       font-size: 25px;
+      display: flex;
+      justify-content: center;
     }
 
     .button-reset-score,
@@ -34,6 +57,8 @@
       background-color: white;
       border: none;
       padding: 10px 15px;
+      margin: 5px 5px;
       font-size: 15px;
       cursor: pointer;
+      
     }

@@ -4,35 +4,37 @@
   <link href="style.css" rel="stylesheet">  
 </head>
 <body>
+  <div class="container">
+    <p class="title">Rock Paper Scissors</p>
 
-  <p class="title">Rock Paper Scissors</p>
+    <button class="move-button js-rock-button">
+      <img src="images/rock.png" class="move-icon">
+    </button>
+    
+    <button class="move-button js-paper-button">
+      <img src="images/paper.png" class="move-icon" >
+    </button>
 
-  <button class="move-button js-rock-button">
-    <img src="images/rock.png" class="move-icon">
-  </button>
-  
-  <button class="move-button js-paper-button">
-    <img src="images/paper.png" class="move-icon" >
-  </button>
+    <button class="move-button js-scissors-button">
+      <img src="images/scissors.png" class="move-icon">
+    </button>
 
-  <button class="move-button js-scissors-button">
-    <img src="images/scissors.png" class="move-icon">
-  </button>
+    <p class="js-result result"> </p>
+    <p class="js-moves moves"> </p> 
+    <p class="js-score score"></p>
 
-  <p class="js-result result"> </p>
-  <p class="js-moves"> </p> 
-  <p class="js-score"></p>
+    <div class="play-buttons">
+      <button 
+        class="button-reset-score js-reset-button 
+      ">Reset Score</button>
 
-  <button 
-    class="button-reset-score js-reset-button 
-  ">Reset Score</button>
-
-  <button 
-    class="js-auto-play-button button-auto-play 
-  ">Auto Play</button>
-  
-  <p class="js-confirmation-buttons"></p>
-
+      <button 
+        class="js-auto-play-button button-auto-play 
+      ">Auto Play</button>
+    </div>
+    
+    <p class="js-confirmation-buttons"></p>
+  </div>
  <script src="javascript.js"></script>
 </body>
 </html> 
