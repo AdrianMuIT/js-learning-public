@@ -47,7 +47,7 @@ products.forEach((product) => {
           </div>
 
           <button class="add-to-cart-button button-primary js-add-to-cart-button"
-          data-product-name="${product.name}">
+          data-product-id="${product.id}">
             Add to Cart
           </button>
         </div>
@@ -61,25 +61,50 @@ const listAddToCartButtons = document.querySelectorAll('.js-add-to-cart-button')
 
 listAddToCartButtons.forEach((button) => {
   button.addEventListener('click', () => {
-    const productName = button.dataset.productName;
+    const productId = button.dataset.productId;
 
-    let matchingItem;
-
-    cart.forEach((item) => {
-      if (productName === item.productName) {
-        matchingItem = item;
-      }
-    });
-
-    if (matchingItem) {
-      matchingItem.quantity++;
-    } else {
-      cart.push({
-        productName: productName,
-        quantity: 1
-      });
-    }
-
-    console.log(cart);
+    addToCart(productId);
+    updateCartQuantityOnPage();
   });
 });
+
+
+//Adding product to cart \data\cart.js
+function addToCart(productId) {
+  let matchingItem;
+
+  cart.forEach((item) => {
+    if (productId === item.productId) {
+      matchingItem = item;
+    }
+  });
+
+  if (matchingItem) {
+    matchingItem.quantity++;
+  } else {
+    cart.push({
+      productId: productId,
+      quantity: 1
+    });
+  }
+};
+
+
+//Calculate Cart Quantity
+function calculateCartQuantity() {
+  let cartQuantity = 0;
+
+  cart.forEach((item) => {
+    cartQuantity += item.quantity;
+  });
+
+  return cartQuantity;
+};
+
+
+//Update Quantity Counter on Amazon.html
+function updateCartQuantityOnPage() {
+  const cartQuantity = document.querySelector('.js-cart-quantity');
+
+  cartQuantity.innerHTML = calculateCartQuantity();
+};
