@@ -1,3 +1,5 @@
+import {cart} from '../data/cart.js';
+
 let productsHTML = '';
 
 products.forEach((product) => {
@@ -41,7 +43,7 @@ products.forEach((product) => {
 
           <div class="product-spacer"></div>
 
-          <div class="added-to-cart">
+          <div class="added-to-cart js-added-to-cart-selector-${product.id}">
             <img src="images/icons/checkmark.png">
             Added
           </div>
@@ -64,6 +66,7 @@ listAddToCartButtons.forEach((button) => {
     const productId = button.dataset.productId;
 
 
+    addedToCartInfo(productId);
     addToCart(productId);
     updateCartQuantityOnPage();
   });
@@ -73,8 +76,7 @@ listAddToCartButtons.forEach((button) => {
 //Adding product to cart \data\cart.js
 function addToCart(productId) {
   const qunatitySelector = document.querySelector(`.js-quantity-selector-${productId}`);
-  const quantitySelect = Number(qunatitySelector.value);
-  console.log(quantitySelect);
+  const quantityFromSelect = Number(qunatitySelector.value);
   let matchingItem;
 
   cart.forEach((item) => {
@@ -84,11 +86,11 @@ function addToCart(productId) {
   });
 
   if (matchingItem) {
-    matchingItem.quantity += quantitySelect;
+    matchingItem.quantity += quantityFromSelect;
   } else {
     cart.push({
       productId: productId,
-      quantity: quantitySelect
+      quantity: quantityFromSelect
     });
   }
 };
@@ -107,8 +109,24 @@ function calculateCartQuantity() {
 
 
 //Update Quantity Counter on Amazon.html
+
 function updateCartQuantityOnPage() {
   const cartQuantity = document.querySelector('.js-cart-quantity');
 
   cartQuantity.innerHTML = calculateCartQuantity();
+};
+
+
+let addedToCartTimeout;
+
+function addedToCartInfo(productId) {
+  const information = document.querySelector(`.js-added-to-cart-selector-${productId}`);
+
+  clearTimeout(addedToCartTimeout);
+
+  information.classList.add('added-to-cart-visible');
+
+  addedToCartTimeout = setTimeout(() => {
+    information.classList.remove('added-to-cart-visible');
+  }, 1500);
 };
