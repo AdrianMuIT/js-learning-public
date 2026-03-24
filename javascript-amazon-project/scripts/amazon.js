@@ -1,4 +1,4 @@
-import {cart} from '../data/cart.js';
+import {cart, addToCart} from '../data/cart.js';
 import {products} from '../data/products.js';
 
 let productsHTML = '';
@@ -67,35 +67,11 @@ listAddToCartButtons.forEach((button) => {
     const productId = button.dataset.productId;
 
 
-    addedToCartInfo(productId);
-    addToCart(productId);
-    updateCartQuantityOnPage();
+    addedToCartInfo(productId); //Makes Added to Cart sign visible for 1.5s
+    addToCart(productId); //Adding product to cart \data\cart.js
+    updateCartQuantityOnPage(); //Update Quantity Counter on Amazon.html
   });
 });
-
-
-//Adding product to cart \data\cart.js
-function addToCart(productId) {
-  const qunatitySelector = document.querySelector(`.js-quantity-selector-${productId}`);
-  const quantityFromSelect = Number(qunatitySelector.value);
-  let matchingItem;
-
-  cart.forEach((item) => {
-    if (productId === item.productId) {
-      matchingItem = item;
-    }
-  });
-
-  if (matchingItem) {
-    matchingItem.quantity += quantityFromSelect;
-  } else {
-    cart.push({
-      productId: productId,
-      quantity: quantityFromSelect
-    });
-  }
-};
-
 
 //Calculate Cart Quantity
 function calculateCartQuantity() {
@@ -110,7 +86,6 @@ function calculateCartQuantity() {
 
 
 //Update Quantity Counter on Amazon.html
-
 function updateCartQuantityOnPage() {
   const cartQuantity = document.querySelector('.js-cart-quantity');
 
@@ -118,6 +93,7 @@ function updateCartQuantityOnPage() {
 };
 
 
+//Makes Added to Cart sign visible for 1.5s
 let addedToCartTimeout;
 
 function addedToCartInfo(productId) {
